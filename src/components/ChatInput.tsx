@@ -12,7 +12,7 @@ export function ChatInput({ onSendMessage, disabled = false, placeholder = "Type
       onSendMessage={onSendMessage}
       disabled={disabled}
       placeholder={placeholder}
-      className="w-full border border-[#ccc] rounded-2xl"
+      className="w-full border border-[#ccc] rounded-2xl shadow-lg shadow-blue-300/50"
     />
   );
 }

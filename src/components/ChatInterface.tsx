@@ -16,6 +16,15 @@ export function ChatInterface() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
+  useEffect(()=>{
+    if(messages.length !== 0){
+      localStorage.clear();
+      localStorage.setItem('chats', JSON.stringify(messages));
+    }
+    const chats = JSON.parse(localStorage.getItem('chats') || '[]');
+    setMessages(chats);
+  },[messages])
+
   const scrollToBottom = () => {
     if (scrollAreaRef.current) {
       const scrollElement = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
