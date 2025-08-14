@@ -82,6 +82,7 @@ export function TypingAnimation({
   duration = 0.05,
   delay = 0,
 }: TypingAnimationProps) {
+  console.log(text)
   const words = text.split(" ");
 
   return (

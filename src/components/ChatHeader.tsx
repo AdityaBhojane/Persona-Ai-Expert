@@ -1,6 +1,7 @@
 import { GithubIcon, Linkedin, MessageCircle, Sparkles, Twitter } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Expert } from "./ExpertToggle";
+import { socket } from "@/Api/socket";
 
 interface ChatHeaderProps {
   currentExpert: Expert;
@@ -21,7 +22,10 @@ export function ChatHeader({ currentExpert }: ChatHeaderProps) {
     <header className="flex items-center justify-between p-6 bg-card/80 backdrop-blur-sm border-b border-border sticky top-0 z-10">
       <div className="flex items-center gap-3">
         <div className={`p-2 rounded-xl bg-gradient-to-r ${expertGradients[currentExpert]} shadow-lg`}>
-          <MessageCircle className="w-6 h-6 text-white" />
+          <MessageCircle onClick={()=>{
+              socket.emit('client-message', "hello");
+              console.log('on')
+            }} className="w-6 h-6 text-white" />
         </div>
         <div>
           <h1 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">

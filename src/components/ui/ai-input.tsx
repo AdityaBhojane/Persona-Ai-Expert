@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useState, useRef, useEffect } from "react";
 import { Send, Mic, Paperclip, Smile } from "lucide-react";
+import { socket } from "@/Api/socket";
 
 interface AiInputProps {
   onSendMessage: (message: string) => void;
@@ -31,6 +32,8 @@ export function AiInput({
       }
     }
   };
+
+
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -106,7 +109,7 @@ export function AiInput({
             whileHover={message.trim() && !disabled ? { scale: 1.05 } : {}}
             whileTap={message.trim() && !disabled ? { scale: 0.95 } : {}}
           >
-            <Send className="w-4 h-4" />
+            <Send  className="w-4 h-4" />
           </motion.button>
         </div>
       </motion.form>

@@ -24,7 +24,8 @@ interface ChatMessageProps {
 export function ChatMessage({ message, isTyping = false, showTypingAnimation = false }: ChatMessageProps) {
   const [showContent, setShowContent] = useState(!showTypingAnimation);
   const isUser = message.sender === "user";
-  
+
+
   const expertAvatars = {
     hitesh: hiteshAvatar,
     piyush: piyushAvatar
