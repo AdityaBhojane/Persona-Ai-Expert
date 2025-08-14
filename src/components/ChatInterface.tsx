@@ -6,6 +6,7 @@ import { ExpertToggle, Expert } from "./ExpertToggle";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
 import { socket } from "@/Api/socket";
+import { Trash } from "lucide-react";
 
 
 
@@ -16,14 +17,17 @@ export function ChatInterface() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
-  useEffect(()=>{
-    if(messages.length !== 0){
+  useEffect(() => {
+    if (messages.length !== 0) {
       localStorage.clear();
       localStorage.setItem('chats', JSON.stringify(messages));
     }
+  }, [messages])
+
+  useEffect(() => {
     const chats = JSON.parse(localStorage.getItem('chats') || '[]');
     setMessages(chats);
-  },[messages])
+  }, [])
 
   const scrollToBottom = () => {
     if (scrollAreaRef.current) {
@@ -39,7 +43,7 @@ export function ChatInterface() {
   }, [messages, isTyping]);
 
   const handleSendMessage = async (content: string) => {
-    socket.emit('client-message', {text:content, expert:currentExpert});
+    socket.emit('client-message', { text: content, expert: currentExpert });
     socket.on("server-response", (msg) => {
       console.log(msg);
     });
@@ -51,7 +55,7 @@ export function ChatInterface() {
     socket.on("server-response", (msg) => {
       setIsTyping(false);
       console.log(msg)
-      setMessages(prev => [...prev, { id: Date.now().toString() + Math.random(), content: msg.text, expert:msg.expert, sender: "bot", timestamp: new Date() }]);
+      setMessages(prev => [...prev, { id: Date.now().toString() + Math.random(), content: msg.text, expert: msg.expert, sender: "bot", timestamp: new Date() }]);
     });
   }, []);
 
@@ -92,6 +96,15 @@ export function ChatInterface() {
             currentExpert={currentExpert}
             onExpertChange={handleExpertChange}
           />
+          <div className=" flex justify-end">
+          <p onClick={()=> {
+            localStorage.clear();
+            setMessages([])
+            }} className="text-red-500 flex  gap-2 w-[140px] text-sm items-center px-4 py-1  hover:text-[#740202] rounded-xl cursor-pointer">
+            <Trash className="text-red-600 size-4 hover:text-[#740202]"/>
+            Delete Chats
+          </p>
+          </div>
         </div>
 
         {/* Chat Messages */}
