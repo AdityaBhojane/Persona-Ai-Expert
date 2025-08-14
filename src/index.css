@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Chat App Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 240 10% 98%;
+    --foreground: 240 10% 3.9%;
+
+    /* Cards and surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* Primary brand colors */
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 221 83% 70%;
+
+    /* Secondary colors */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* Muted colors */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Accent colors */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    /* Status colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Expert colors */
+    --hitesh: 14 91% 50%;
+    --hitesh-foreground: 0 0% 98%;
+    --hitesh-glow: 14 91% 70%;
+    --hitesh-bg: 14 50% 96%;
+
+    --piyush: 262 83% 58%;
+    --piyush-foreground: 0 0% 98%;
+    --piyush-glow: 262 83% 75%;
+    --piyush-bg: 262 50% 96%;
+
+    /* Chat colors */
+    --chat-user: 221 83% 53%;
+    --chat-user-foreground: 0 0% 98%;
+    --chat-bot: 0 0% 96%;
+    --chat-bot-foreground: 240 10% 3.9%;
+
+    /* UI elements */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hitesh: linear-gradient(135deg, hsl(var(--hitesh)), hsl(var(--hitesh-glow)));
+    --gradient-piyush: linear-gradient(135deg, hsl(var(--piyush)), hsl(var(--piyush-glow)));
+    --gradient-bg: linear-gradient(135deg, hsl(240 10% 98%), hsl(240 20% 96%));
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+    --shadow-chat: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Base colors - dark mode */
+    --background: 240 10% 3.9%;
+    --foreground: 210 40% 98%;
+
+    /* Cards and surfaces */
+    --card: 240 3.7% 15.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 3.7% 15.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary brand colors - dark mode */
+    --primary: 221 83% 63%;
+    --primary-foreground: 240 10% 3.9%;
+    --primary-glow: 221 83% 80%;
+
+    /* Secondary colors */
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted colors */
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Accent colors */
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Status colors */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Expert colors - dark mode */
+    --hitesh: 14 91% 60%;
+    --hitesh-foreground: 0 0% 98%;
+    --hitesh-glow: 14 91% 80%;
+    --hitesh-bg: 14 30% 15%;
+
+    --piyush: 262 83% 68%;
+    --piyush-foreground: 0 0% 98%;
+    --piyush-glow: 262 83% 85%;
+    --piyush-bg: 262 30% 15%;
+
+    /* Chat colors - dark mode */
+    --chat-user: 221 83% 63%;
+    --chat-user-foreground: 0 0% 98%;
+    --chat-bot: 240 3.7% 15.9%;
+    --chat-bot-foreground: 210 40% 98%;
+
+    /* UI elements */
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 221 83% 63%;
+
+    /* Gradients - dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hitesh: linear-gradient(135deg, hsl(var(--hitesh)), hsl(var(--hitesh-glow)));
+    --gradient-piyush: linear-gradient(135deg, hsl(var(--piyush)), hsl(var(--piyush-glow)));
+    --gradient-bg: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 15% 8%));
+
+    /* Shadows - dark mode */
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-chat: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Chat Animation Classes */
+  .message-enter {
+    @apply animate-[slide-up_0.3s_ease-out];
+  }
+
+  .message-typing {
+    @apply animate-[pulse_1.5s_ease-in-out_infinite];
+  }
+
+  .expert-switch {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  .chat-bubble {
+    @apply shadow-[var(--shadow-chat)] backdrop-blur-sm;
+  }
+
+  .glow-effect {
+    @apply shadow-[var(--shadow-glow)];
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes typing-dots {
+    0%, 20% {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .animate-typing-dots {
+    animation: typing-dots 1.4s infinite ease-in-out;
+  }
+}
