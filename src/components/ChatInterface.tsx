@@ -108,7 +108,7 @@ export function ChatInterface() {
         </div>
 
         {/* Chat Messages */}
-        <div className="flex-1 px-4">
+        <div id="chat" className="flex-1 px-4">
           <ScrollArea ref={scrollAreaRef} className="h-full overflow-hidden">
             <div className="space-y-4 pb-4 overflow-hidden">
               {messages.length === 0 && (
